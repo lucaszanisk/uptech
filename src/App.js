@@ -7,13 +7,15 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const response = await api.get('');
+    const response = await api.get('', { params: { q: 'harry' } });
     console.log(response.data);
 
     this.setState({ livros: response.data });
   }
 
   render() {
+    const { livros } = this.state;
+
     return (
       <div>
         <h1>Listar os filmes</h1>
